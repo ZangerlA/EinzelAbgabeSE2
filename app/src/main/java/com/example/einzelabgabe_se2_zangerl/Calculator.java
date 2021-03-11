@@ -1,11 +1,22 @@
 package com.example.einzelabgabe_se2_zangerl;
 
+import android.widget.TextView;
+
 public class Calculator implements Runnable {
-    @Override
-    public void run() {
+    TextView view;
+    String matNr;
+
+    public Calculator(TextView view, String matNr) {
+        this.view = view;
+        this.matNr = matNr;
     }
 
-    public void calculateMatNr(String matNr) {
+    @Override
+    public void run() {
+        calculateMatNr(matNr);
+    }
+
+    public static void calculateMatNr(String matNr) {
         int index1 = -1;
         int index2 = -1;
         for (int i = 0; i < matNr.length(); i++) {
