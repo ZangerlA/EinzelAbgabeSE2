@@ -1,13 +1,17 @@
 package com.example.einzelabgabe_se2_zangerl;
 
+import android.widget.TextView;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.Socket;
+import android.view.View;
+import android.widget.TextView;
 
-public class TCPClient implements Runnable {
+public class TCPClient implements Runnable  {
 
     private String message;
     private String answer;
@@ -22,16 +26,12 @@ public class TCPClient implements Runnable {
             Socket socket = new Socket("se2-isys.aau.at", 53212);
             DataOutputStream outToServer = new DataOutputStream(socket.getOutputStream());
             BufferedReader inFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            outToServer.writeBytes(message);
+            outToServer.writeBytes(message +"\n");
             this.answer = inFromServer.readLine();
-            socket.close();
+            System.out.println(answer);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public String getAnswer() {
-        return this.answer;
-    }
 }
