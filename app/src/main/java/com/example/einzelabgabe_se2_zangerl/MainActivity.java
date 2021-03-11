@@ -23,11 +23,4 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
-
-    public void displayAnswer(String msg) {
-        runOnUiThread(() -> {
-            TextView view = findViewById(R.id.outputField);
-            view.setText(msg);
-        });
-    }
 }
