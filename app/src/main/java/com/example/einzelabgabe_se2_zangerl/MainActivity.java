@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
         Button btn = findViewById(R.id.sendButton);
         btn.setOnClickListener(v -> {
             EditText text = findViewById(R.id.inputFieldMatNr);
-            TCPClient client = new TCPClient(text.getText().toString());
+            TextView view = findViewById(R.id.outputField);
+            TCPClient client = new TCPClient(text.getText().toString(), view);
             new Thread(client).start();
         });
 

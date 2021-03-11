@@ -15,9 +15,11 @@ public class TCPClient implements Runnable  {
 
     private String message;
     private String answer;
+    private TextView view;
 
-    public TCPClient(String message){
+    public TCPClient(String message, TextView view){
         this.message = message;
+        this.view = view;
     }
 
     @Override
@@ -28,7 +30,7 @@ public class TCPClient implements Runnable  {
             BufferedReader inFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             outToServer.writeBytes(message +"\n");
             this.answer = inFromServer.readLine();
-            System.out.println(answer);
+            view.setText(answer);
         } catch (IOException e) {
             e.printStackTrace();
         }
