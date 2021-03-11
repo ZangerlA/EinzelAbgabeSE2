@@ -3,7 +3,6 @@ package com.example.einzelabgabe_se2_zangerl;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         calculateButton.setOnClickListener(v -> {
             EditText text = findViewById(R.id.inputFieldMatNr);
             TextView view = findViewById(R.id.outputField);
-            Calculator calculator = new Calculator(view, text.getText().toString());
+            DivisorCalculator calculator = new DivisorCalculator(view, text.getText().toString());
             new Thread(calculator).start();
         });
     }

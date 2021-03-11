@@ -2,11 +2,11 @@ package com.example.einzelabgabe_se2_zangerl;
 
 import android.widget.TextView;
 
-public class Calculator implements Runnable {
+public class DivisorCalculator implements Runnable {
     private TextView view;
     private String matNr;
 
-    public Calculator(TextView view, String matNr) {
+    public DivisorCalculator(TextView view, String matNr) {
         this.view = view;
         this.matNr = matNr;
     }
