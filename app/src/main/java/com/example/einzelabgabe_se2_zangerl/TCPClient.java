@@ -30,4 +30,8 @@ public class TCPClient implements Runnable {
         }
 
     }
+
+    public String getAnswer() {
+        return this.answer;
+    }
 }
