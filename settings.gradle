@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "EinzelAbgabe_SE2_Zangerl"
