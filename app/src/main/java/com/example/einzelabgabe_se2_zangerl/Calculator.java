@@ -15,7 +15,6 @@ public class Calculator implements Runnable {
     public void run() {
         String result = calculateMatNr(matNr);
         view.setText(result);
-
     }
 
     public String calculateMatNr(String matNr) {
@@ -23,8 +22,8 @@ public class Calculator implements Runnable {
         for (int i = 0; i < matNr.length(); i++) {
             for (int j = i+1; j < matNr.length(); j++) {
                 for (int k = 2; k < 10; k++) {
-                    if (matNr.charAt(i) % k == 0 && matNr.charAt(i) != 0) {
-                        if (matNr.charAt(j) % k == 0 && matNr.charAt(j) != 0) {
+                    if (matNr.charAt(i) % k == 0 && matNr.charAt(i) != '0') {
+                        if (matNr.charAt(j) % k == 0 && matNr.charAt(j) != '0') {
                             result += i + " + " + j + " | ";
                         }
                     }
