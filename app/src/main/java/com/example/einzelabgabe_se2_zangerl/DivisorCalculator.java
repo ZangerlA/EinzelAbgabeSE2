@@ -25,6 +25,7 @@ public class DivisorCalculator implements Runnable {
                     if (matNr.charAt(i) % k == 0 && matNr.charAt(i) != '0') {
                         if (matNr.charAt(j) % k == 0 && matNr.charAt(j) != '0') {
                             result += i + " + " + j + " | ";
+                            break;
                         }
                     }
                 }
