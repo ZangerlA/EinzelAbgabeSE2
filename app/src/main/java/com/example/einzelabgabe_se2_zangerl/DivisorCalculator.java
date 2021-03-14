@@ -1,8 +1,9 @@
 package com.example.einzelabgabe_se2_zangerl;
 
+import android.app.Activity;
 import android.widget.TextView;
 
-public class DivisorCalculator implements Runnable {
+public class DivisorCalculator extends Activity implements Runnable {
     private TextView view;
     private String matNr;
 
@@ -13,11 +14,11 @@ public class DivisorCalculator implements Runnable {
 
     @Override
     public void run() {
-        String result = calculateMatNr(matNr);
-        view.setText(result);
+        String result = calculateMatNr();
+        runOnUiThread(() -> view.setText(result));
     }
 
-    public String calculateMatNr(String matNr) {
+    public String calculateMatNr() {
         String result = "";
         for (int i = 0; i < matNr.length(); i++) {
             for (int j = i+1; j < matNr.length(); j++) {

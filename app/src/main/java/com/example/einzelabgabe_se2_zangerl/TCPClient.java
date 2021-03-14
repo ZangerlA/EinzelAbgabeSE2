@@ -1,5 +1,6 @@
 package com.example.einzelabgabe_se2_zangerl;
 
+import android.app.Activity;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -11,7 +12,7 @@ import java.net.Socket;
 import android.view.View;
 import android.widget.TextView;
 
-public class TCPClient implements Runnable  {
+public class TCPClient extends Activity implements Runnable  {
 
     private String message;
     private String answer;
@@ -30,7 +31,7 @@ public class TCPClient implements Runnable  {
             BufferedReader inFromServer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             outToServer.writeBytes(message +"\n");
             this.answer = inFromServer.readLine();
-            view.setText(answer);
+            runOnUiThread(() -> view.setText(answer));
         } catch (IOException e) {
             e.printStackTrace();
         }
